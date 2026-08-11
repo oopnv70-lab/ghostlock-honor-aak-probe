@@ -35,11 +35,17 @@ jobs:
       - name: Build preload.so
         run: make PROJECT=AAK-AN00
 
-      - name: Upload artifact
+      - name: Upload preload.so artifact
         uses: actions/upload-artifact@v4
         with:
           name: preload-aak-an00
           path: exploit/build/AAK-AN00/bin/preload.so
+
+      - name: Upload su_daemon artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: su-daemon-aak-an00
+          path: exploit/build/AAK-AN00/bin/su_daemon
 
       - name: Show sha256
         run: sha256sum build/AAK-AN00/bin/preload.so
